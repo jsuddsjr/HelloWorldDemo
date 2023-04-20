@@ -5,128 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hello World demonstration of typing animation using only CSS.">
-    <title>Document</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(0deg, blue 0%, #111 100%);
-            color: white;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        /* Centered in the middle of the screen */
-        #container {
-            font-family: Consolas, monospace;
-            margin: auto;
-            height: 1em;
-            width: 15ch;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-        }
-
-        #typewriter::before {
-            /* 13 characters */
-            content: "Hello, World!";
-        }
-
-        #typewriter {
-            position: absolute;
-            overflow: hidden;
-            white-space: nowrap;
-            text-align: left;
-
-            /* 14 steps from empty to full width */
-            animation: typing 3s steps(14, end) infinite alternate;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            10% {
-                width: 0;
-            }
-            80% {
-                /* one character extra */
-                width: 14ch;
-            }
-            to {
-                width: 14ch;
-            }
-        }
-
-        #underscore {
-            position: relative;
-            display: inline-block;
-
-            animation: blink 800ms step-start infinite,
-                       cursor-move 3s steps(14, end) infinite alternate;
-        }
-
-        @keyframes blink {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        @keyframes cursor-move {
-            from {
-                transform: translateX(0);
-            }
-            10% {
-                transform: translateX(0);
-            }
-            80% {
-                transform: translateX(13ch);
-            }
-            to {
-                transform: translateX(13ch);
-            }
-        }
-
-        @media screen and (min-width: 425px) {
-            #container {
-                font-size: 2em;
-            }
-        }
-
-        @media screen and (min-width: 768px) {
-            #container {
-                font-size: 3.5em;
-            }
-        }
-
-        @media screen and (min-width: 1024px) {
-            #container {
-                font-size: 4.5em;
-            }
-        }
-
-        @media screen and (min-width: 1440px) {
-            #container {
-                font-size: 5.5em;
-            }
-        }
-
-    </style>
+    <title>Hello World: Typing with CSS</title>
+    <link rel="stylesheet" href="typing.css">
 </head>
 
 <body>
-    <div id="container">
-        <span id="typewriter"></span>
-        <span id="underscore">&#95;</span>
+    <div id="container" aria-live="polite">
+        <div class="line">
+            <div class="typing"></div>
+        </div>
     </div>
+    <script src="typing.js"></script>
 </body>
 
 </html>
