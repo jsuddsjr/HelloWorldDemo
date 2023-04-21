@@ -126,7 +126,7 @@ This is only the beginning. Check out the full demo to see:
 
 ## Demo videos
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/8NTZNljfAKM)
 
 ## Development Environment
 
