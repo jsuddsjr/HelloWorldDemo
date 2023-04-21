@@ -1,5 +1,4 @@
 {
-    "line_length": false,
     "no-inline-html": {
         "allowed_elements": [ "span" ]
     }

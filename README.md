@@ -4,9 +4,18 @@
 
 ## Overview
 
-To be honest, I've done this challenge a million times already. I didn't want to use a Python `print` statement (too easy), nor would I be satisfied by spinning up a web site from a template and sticking "Hello World" on the home page (not enough of a challenge). So, decided to use a bit of basic HTML and fancy CSS (no scripting allowed).
+To be honest, I've done this challenge a million times already. I didn't want to
+use a Python `print` statement (too easy), nor would I be satisfied by spinning
+up a web site from a template and sticking "Hello World" on the home page (not
+enough of a challenge). So, decided to use a bit of basic HTML and fancy CSS (no
+scripting allowed).
 
-I first headed over to [Codepen.io](https://codepen.io), because who doesn't like a little bit of inspiration? The first pen that caught my eye was for a [Terminal Text Effect](https://codepen.io/Tbgse/pen/dYaJyJ) that displayed the text one character at a time. It looked promising, but I was disappointed to discover that the effect was created entirely by JavaScript. Even the cursor blink was controlled by JavaScript.
+I first headed over to [Codepen.io](https://codepen.io), because who doesn't
+like a little bit of inspiration? The first pen that caught my eye was for a
+[Terminal Text Effect](https://codepen.io/Tbgse/pen/dYaJyJ) that displayed the
+text one character at a time. It looked promising, but I was disappointed to
+discover that the effect was created entirely by JavaScript. Even the cursor
+blink was controlled by JavaScript.
 
 ![screen capture](media/console-text-js.gif)
 
@@ -14,7 +23,9 @@ I first headed over to [Codepen.io](https://codepen.io), because who doesn't lik
 
 ### Tutorial: How to create a typing effect with CSS animation
 
-I decided to animate the cursor first. There's no reason to fiddle with the `visibility` property in script when you can easily change the `opacity` with CSS animation. Here's how to do it.
+I decided to animate the cursor first. There's no reason to fiddle with the
+`visibility` property in script when you can easily change the `opacity` with
+CSS animation. Here's how to do it.
 
 #### Using step-wise easing functions
 
@@ -40,7 +51,10 @@ Here's all the HTML and CSS we will need.
 }
 ```
 
-I divided the animation into two equally spaced steps. Normally, CSS will animate the value of `opacity` smoothly between 0 and 1. To prevent this, I used the `step-end` easing function to jump between states. This technique will also factor into the typing effect.
+I divided the animation into two equally spaced steps. Normally, CSS will
+animate the value of `opacity` smoothly between 0 and 1. To prevent this, I used
+the `step-end` easing function to jump between states. This technique will also
+factor into the typing effect.
 
 > Use step easing functions to abruptly change between animation states.
 
@@ -48,13 +62,23 @@ I divided the animation into two equally spaced steps. Normally, CSS will animat
 
 #### Animating the width of an element
 
-You can emulate typing with a sliding window, where each step of the animation exposes just a little more of the text until, voila! It's important that I use a monospace font, so each character is guaranteed to be the same width as all the others.
+You can emulate typing with a sliding window, where each step of the animation
+exposes just a little more of the text until, voila! It's important that I use a
+monospace font, so each character is guaranteed to be the same width as all the
+others.
 
-> <span style="font-family: monospace">Each character in a monospace font is the same width.</span>
+> <span style="font-family: monospace">Each character in a monospace font is the
+> same width.</span>
 
-| :warning: Change of plans :warning: |
-| --- |
-| As I am trying to animate the width of the element, I discovered that only `position: fixed` or `position: absolute` elements will let you animate the `width` property. This is a problem because I was counting on the width of the element to push the cursor along, but absolutely positioned elements exist outside the document flow. I tried putting the cursor inside the `div` with the text, but that quickly proved impractical. I cannot use a sliding window AND have a cursor unless I animate them separately. After trying a few options, I decide to replace the flat cursor with a vertical one. |
+| :warning: Change of plans :warning: | | --- | | As I am trying to animate the
+width of the element, I discovered that only `position: fixed` or
+`position: absolute` elements will let you animate the `width` property. This is
+a problem because I was counting on the width of the element to push the cursor
+along, but absolutely positioned elements exist outside the document flow. I
+tried putting the cursor inside the `div` with the text, but that quickly proved
+impractical. I cannot use a sliding window AND have a cursor unless I animate
+them separately. After trying a few options, I decide to replace the flat cursor
+with a vertical one. |
 
 ```html
 <div class="typed">Hello World</div>
@@ -103,9 +127,14 @@ You can emulate typing with a sliding window, where each step of the animation e
 * First, we set the `font-family` to monospace.
 * Setting `position: absolute` allows us to animate the `width`
 * `overflow-x: hidden` and `white-space: nowrap` hides letters outside the box.
-* I use just the `border-right-color` property to create a flashing cursor. (Animating the `border-right` shorthand property would require me to specify the entire shorthand in the animation sequence.)
-* I also ensure that `box-sizing: content-box` is set to ensure the border doesn't mess up the rendering.
-* Finally, the animation is broken into 12 discrete steps from 0 to 11 characters of "Hello World". So that each character fills exactly one step of the animation, the final width is `12ch`.
+* I use just the `border-right-color` property to create a flashing cursor.
+  (Animating the `border-right` shorthand property would require me to specify
+  the entire shorthand in the animation sequence.)
+* I also ensure that `box-sizing: content-box` is set to ensure the border
+  doesn't mess up the rendering.
+* Finally, the animation is broken into 12 discrete steps from 0 to 11
+  characters of "Hello World". So that each character fills exactly one step of
+  the animation, the final width is `12ch`.
 
 > We need 12 steps for a word with 11 characters.
 
@@ -119,7 +148,8 @@ This is only the beginning. Check out the full demo to see:
 
 * How to configure the animation for different string lengths using CSS variables.
 * How to respond to `animationend` events in JavaScript to change the string.
-* How to use flexbox and reverse-column flow to generate a text crawl reminiscent of Star Wars.
+* How to use flexbox and reverse-column flow to generate a text crawl
+  reminiscent of Star Wars.
 * How to use media queries to reduce the size of the text for smaller screens.
 
 ![screen capture](media/console-text-final.gif)
@@ -130,7 +160,12 @@ This is only the beginning. Check out the full demo to see:
 
 ## Development Environment
 
-I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to develop HTML and CSS projects. I also highly recommend also installing [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) to avoid embarrasing [sic] typos.
+I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the
+[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+extension to develop HTML and CSS projects. I also highly recommend also
+installing
+[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+to avoid embarrasing [sic] typos.
 
 ## Useful Websites
 
