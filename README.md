@@ -8,7 +8,7 @@ To be honest, I've done this challenge a million times already. I didn't want to
 
 I first headed over to [Codepen.io](https://codepen.io), because who doesn't like a little bit of inspiration? The first pen that caught my eye was for a [Terminal Text Effect](https://codepen.io/Tbgse/pen/dYaJyJ) that displayed the text one character at a time. It looked promising, but I was disappointed to discover that the effect was created entirely by JavaScript. Even the cursor blink was controlled by JavaScript.
 
-![screen capture](media/console-text.gif)
+![screen capture](media/console-text-js.gif)
 
 > Rule #1: Never use JavaScript to do something that CSS can do.
 
@@ -104,11 +104,25 @@ You can emulate typing with a sliding window, where each step of the animation e
 * Setting `position: absolute` allows us to animate the `width`
 * `overflow-x: hidden` and `white-space: nowrap` hides letters outside the box.
 * I use just the `border-right-color` property to create a flashing cursor. (Animating the `border-right` shorthand property would require me to specify the entire shorthand in the animation sequence.)
-* I break the animation into 12 discrete steps (counting from 0 to 11 characters) and specify the desired width as `12ch` so each character fills exactly one step of the animation.
+* I also ensure that `box-sizing: content-box` is set to ensure the border doesn't mess up the rendering.
+* Finally, the animation is broken into 12 discrete steps from 0 to 11 characters of "Hello World". So that each character fills exactly one step of the animation, the final width is `12ch`.
 
 > We need 12 steps for a word with 11 characters.
 
+![screen capture](media/console-text-css.gif)
+
 [Click here to see it action](flashing.html)
+
+### Digging deeper
+
+This is only the beginning. Check out the full demo to see:
+
+* How to configure the animation for different string lengths using CSS variables.
+* How to respond to `animationend` events in JavaScript to change the string.
+* How to use flexbox and reverse-column flow to generate a text crawl reminiscent of Star Wars.
+* How to use media queries to reduce the size of the text for smaller screens.
+
+![screen capture](media/console-text-final.gif)
 
 ## Demo videos
 
@@ -116,7 +130,7 @@ You can emulate typing with a sliding window, where each step of the animation e
 
 ## Development Environment
 
-I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to develop HTML and CSS projects.
+I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to develop HTML and CSS projects. I also highly recommend also installing [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) to avoid embarrasing [sic] typos.
 
 ## Useful Websites
 
