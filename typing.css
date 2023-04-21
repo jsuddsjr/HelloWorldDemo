@@ -30,13 +30,13 @@ body {
   right: 0;
 }
 
-.typing {
+.typing::before {
+  content: attr(dat.typing {
   white-space: nowrap;
   text-align: center;
   border-right-width: 0;
 }
-.typing::before {
-  content: attr(data-message);
+a-message);
 }
 
 .line {

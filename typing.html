@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Effect</title>
+    <style>
+        body {
+            font-size: 3em;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        #typed {
+            font-family: Consolas, monospace;
+            box-sizing: content-box;
+            position: absolute;
+            white-space: nowrap;
+            overflow-x: hidden;
+
+            /* "cursor" */
+            border-right-width: .2ch;
+            border-right-style: solid;
+            border-right-color: black;
+
+            animation: blink 800ms step-start infinite,
+                typing 3s steps(12, end) infinite alternate;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 12ch;
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                border-right-color: black;
+            }
+
+            50% {
+                border-right-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="typed">Hello World</div>
+    </main>
+</body>
+
+</html>
